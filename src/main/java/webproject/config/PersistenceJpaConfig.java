@@ -1,6 +1,5 @@
 package webproject.config;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,22 +10,14 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.sql.DataSource;
-
 import java.util.Properties;
 
 @Configuration
 @ComponentScan("webproject")
 @EnableTransactionManagement
 public class PersistenceJpaConfig {
-    @Bean
-    public EntityManager entityManager() {
-        return entityManagerFactory().getObject().createEntityManager();
-    }
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
